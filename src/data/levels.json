@@ -5,6 +5,8 @@
       "id": 1,
       "category": "动物",
       "topText": "鲨",
+      "topImage": "images/question_1.webp",
+      "bottomImage": "images/question_1_hint.webp",
       "answer": "杀手",
       "difficulty": 1
     },
@@ -12,13 +14,17 @@
       "id": 2,
       "category": "成语",
       "topText": "姜",
+      "topImage": "images/question_2.webp",
+      "bottomImage": "images/question_2_hint.webp",
       "answer": "将心比心",
       "difficulty": 2
     },
     {
       "id": 3,
       "category": "网络热梗",
-      "topText": "二",
+      "topText": "猿",
+      "topImage": "images/question_3.webp",
+      "bottomImage": "images/question_3_hint.webp",
       "answer": "二次元",
       "difficulty": 2
     }
