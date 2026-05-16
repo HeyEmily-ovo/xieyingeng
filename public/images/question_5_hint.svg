@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 288">
+  <rect width="384" height="288" fill="#fce7f3" rx="16"/>
+  <!-- 瓶子（躺平） -->
+  <g transform="rotate(-90, 192, 140)">
+    <rect x="155" y="110" width="14" height="20" rx="3" fill="#6b7280"/>
+    <rect x="142" y="125" width="40" height="70" rx="10" fill="#10b981"/>
+    <rect x="147" y="130" width="30" height="40" rx="3" fill="#34d399" opacity="0.4"/>
+    <rect x="155" y="100" width="14" height="15" rx="3" fill="#4b5563"/>
+    <rect x="152" y="148" width="20" height="15" rx="2" fill="#fbbf24"/>
+  </g>
+  <!-- 躺平暗示线条 -->
+  <line x1="80" y1="140" x2="300" y2="140" stroke="#9ca3af" stroke-width="2" stroke-dasharray="8,4"/>
+  <!-- Zzz -->
+  <text x="310" y="120" font-size="20" fill="#9ca3af">z</text>
+  <text x="325" y="105" font-size="16" fill="#9ca3af">z</text>
+  <text x="335" y="93" font-size="12" fill="#9ca3af">z</text>
+  <text x="192" y="270" text-anchor="middle" font-size="22" fill="#9d174d" font-weight="bold">这是 ____</text>
+</svg>

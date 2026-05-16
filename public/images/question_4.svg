@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 288">
+  <rect width="384" height="288" fill="#fef3c7" rx="16"/>
+  <!-- 麒麟身体 -->
+  <ellipse cx="140" cy="170" rx="70" ry="45" fill="#f59e0b"/>
+  <circle cx="100" cy="125" r="35" fill="#f59e0b"/>
+  <!-- 角 -->
+  <polygon points="80,95 95,45 110,95" fill="#d97706"/>
+  <!-- 眼睛 -->
+  <circle cx="90" cy="120" r="6" fill="#1c1917"/>
+  <!-- 鳞片 -->
+  <circle cx="120" cy="150" r="8" fill="#d97706" opacity="0.6"/>
+  <circle cx="140" cy="140" r="8" fill="#d97706" opacity="0.6"/>
+  <circle cx="130" cy="165" r="8" fill="#d97706" opacity="0.6"/>
+  <circle cx="155" cy="155" r="8" fill="#d97706" opacity="0.6"/>
+  <!-- 腿 -->
+  <rect x="95" y="200" width="15" height="35" rx="5" fill="#d97706"/>
+  <rect x="125" y="200" width="15" height="35" rx="5" fill="#d97706"/>
+  <rect x="155" y="200" width="15" height="35" rx="5" fill="#d97706"/>
+  <!-- 尾巴 -->
+  <path d="M200,160 Q240,130 230,180" stroke="#f59e0b" stroke-width="6" fill="none" stroke-linecap="round"/>
+  <!-- 文字 -->
+  <text x="192" y="265" text-anchor="middle" font-size="22" fill="#92400e" font-weight="bold">这是 麒麟</text>
+  <!-- 火焰装饰 -->
+  <circle cx="280" cy="100" r="20" fill="#ef4444" opacity="0.3"/>
+  <circle cx="280" cy="100" r="12" fill="#f97316" opacity="0.4"/>
+</svg>
