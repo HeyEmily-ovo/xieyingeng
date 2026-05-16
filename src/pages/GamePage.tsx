@@ -37,13 +37,13 @@ function ImageCard({
       <motion.div
         animate={shake ? { x: [0, -8, 8, -8, 8, 0] } : {}}
         transition={{ duration: 0.4 }}
-        className="relative w-full max-w-[260px] sm:max-w-[320px] mx-auto aspect-[147/100]
+        className="relative w-full max-w-[260px] sm:max-w-[320px] mx-auto
           bg-white border-2 border-dashed border-gray-300 rounded-2xl
           flex items-center justify-center overflow-hidden
           group hover:border-emerald-400 transition-colors"
       >
         {imageSrc ? (
-          <img src={imageSrc} alt={alt} className="max-w-full max-h-full object-contain rounded-xl" />
+          <img src={imageSrc} alt={alt} className="w-full h-auto rounded-xl" />
         ) : (
           <div className="text-center">
             <span className="text-4xl sm:text-5xl grayscale group-hover:grayscale-0 transition-all duration-300">
