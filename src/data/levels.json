@@ -3,8 +3,8 @@
   "levels": [
     {
       "id": 1,
-      "category": "动物",
-      "topText": "鲨",
+      "category": "职业",
+      "topText": "鲨鱼",
       "topImage": "images/question_1.webp",
       "bottomImage": "images/question_1_hint.webp",
       "answer": "杀手",
