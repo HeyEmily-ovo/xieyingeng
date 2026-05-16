@@ -5,8 +5,8 @@
       "id": 1,
       "category": "职业",
       "topText": "鲨鱼",
-      "topImage": "images/question_1.webp",
-      "bottomImage": "images/question_1_hint.webp",
+      "topImage": "images/test/question_1.webp",
+      "bottomImage": "images/test/question_1_hint.webp",
       "answer": "杀手",
       "difficulty": 1
     },
@@ -14,8 +14,8 @@
       "id": 2,
       "category": "成语",
       "topText": "姜",
-      "topImage": "images/question_2.webp",
-      "bottomImage": "images/question_2_hint.webp",
+      "topImage": "images/test/question_2.webp",
+      "bottomImage": "images/test/question_2_hint.webp",
       "answer": "将心比心",
       "difficulty": 2
     },
@@ -23,8 +23,8 @@
       "id": 3,
       "category": "网络热梗",
       "topText": "猿",
-      "topImage": "images/question_3.webp",
-      "bottomImage": "images/question_3_hint.webp",
+      "topImage": "images/test/question_3.webp",
+      "bottomImage": "images/test/question_3_hint.webp",
       "answer": "二次元",
       "difficulty": 2
     },
@@ -32,8 +32,8 @@
       "id": 4,
       "category": "食物",
       "topText": "麒麟",
-      "topImage": "images/question_4.webp",
-      "bottomImage": "images/question_4_hint.webp",
+      "topImage": "images/test/question_4.webp",
+      "bottomImage": "images/test/question_4_hint.webp",
       "answer": "冰淇淋",
       "difficulty": 2
     },
@@ -41,8 +41,8 @@
       "id": 5,
       "category": "网络热梗",
       "topText": "瓶子",
-      "topImage": "images/question_5.webp",
-      "bottomImage": "images/question_5_hint.webp",
+      "topImage": "images/test/question_5.webp",
+      "bottomImage": "images/test/question_5_hint.webp",
       "answer": "躺平",
       "difficulty": 1
     },
@@ -50,8 +50,8 @@
       "id": 6,
       "category": "动物",
       "topText": "狼",
-      "topImage": "images/question_6.webp",
-      "bottomImage": "images/question_6_hint.webp",
+      "topImage": "images/test/question_6.webp",
+      "bottomImage": "images/test/question_6_hint.webp",
       "answer": "蟑螂",
       "difficulty": 2
     }
