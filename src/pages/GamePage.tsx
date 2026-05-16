@@ -142,8 +142,18 @@ export default function GamePage() {
           />
         </div>
 
-        {/* 猜测历史 + 空槽预览 */}
-        <div className="w-full mb-3" style={{ minHeight: `${answerLength > 4 ? 280 : 220}px` }}>
+        {/* 输入区域 —— 紧贴图片下方，始终可见 */}
+        <AnswerInput
+          ref={inputRef}
+          answerLength={answerLength}
+          onSubmit={handleSubmit}
+          disabled={isGameOver}
+          remainingAttempts={remaining}
+          maxAttempts={MAX_ATTEMPTS}
+        />
+
+        {/* 猜测历史 + 空槽预览 —— 下方可滚动区域 */}
+        <div className="flex-1 w-full mt-3 overflow-y-auto">
           {history.length === 0 && (
             <p className="text-center text-gray-300 text-sm py-3">
               输入 {answerLength} 个字，开始猜测
@@ -175,16 +185,6 @@ export default function GamePage() {
             </p>
           )}
         </div>
-
-        {/* 输入区域 */}
-        <AnswerInput
-          ref={inputRef}
-          answerLength={answerLength}
-          onSubmit={handleSubmit}
-          disabled={isGameOver}
-          remainingAttempts={remaining}
-          maxAttempts={MAX_ATTEMPTS}
-        />
       </div>
 
       <ResultFeedback
