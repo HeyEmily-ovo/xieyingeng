@@ -1,0 +1,30 @@
+{
+  "permissions": {
+    "allow": [
+      "WebSearch",
+      "WebFetch(domain:store.steampowered.com)",
+      "WebFetch(domain:m.thepaper.cn)",
+      "Bash(npm create *)",
+      "Bash(npm cache *)",
+      "Bash(npm config *)",
+      "Bash(npx create-vite@latest . --template react-ts)",
+      "Bash(npm init *)",
+      "Bash(npm install *)",
+      "Bash(npx vite *)",
+      "Bash(curl -s http://localhost:5173)",
+      "Bash(npx tsc *)",
+      "Bash(curl -s http://localhost:5173/src/main.tsx)",
+      "Bash(curl -s \"http://localhost:5173/src/pages/GamePage.tsx\")",
+      "Bash(curl *)",
+      "Bash(npm run *)",
+      "Bash(git init *)",
+      "Bash(git remote *)",
+      "Bash(git add *)",
+      "Bash(git rm *)",
+      "Bash(git commit -m ' *)",
+      "Bash(git reset *)",
+      "Bash(npx gh-pages *)",
+      "Bash(git push *)"
+    ]
+  }
+}
