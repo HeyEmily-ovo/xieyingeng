@@ -37,10 +37,10 @@ const AnswerInput = forwardRef<HTMLInputElement, AnswerInputProps>(function Answ
           autoComplete="off"
           autoCorrect="off"
           spellCheck={false}
-          className="flex-1 bg-gray-800 border-2 border-gray-700 rounded-xl px-4 py-3.5
-            text-white text-lg placeholder-gray-500
+          className="flex-1 bg-white border-2 border-gray-300 rounded-xl px-4 py-3.5
+            text-gray-900 text-lg placeholder-gray-400
             focus:outline-none focus:border-emerald-500 transition-all
-            disabled:opacity-50 disabled:cursor-not-allowed"
+            disabled:opacity-50 disabled:cursor-not-allowed disabled:bg-gray-100"
         />
         <button
           type="submit"
@@ -48,19 +48,19 @@ const AnswerInput = forwardRef<HTMLInputElement, AnswerInputProps>(function Answ
           className={`font-bold px-6 py-3.5 rounded-xl transition-all
             ${
               isValidLength && !disabled
-                ? "bg-emerald-600 hover:bg-emerald-500 active:scale-95 shadow-lg shadow-emerald-900/30"
-                : "bg-gray-700 text-gray-500 cursor-not-allowed"
+                ? "bg-emerald-600 hover:bg-emerald-500 active:scale-95 text-white shadow-lg shadow-emerald-200"
+                : "bg-gray-200 text-gray-400 cursor-not-allowed"
             }`}
         >
           提交
         </button>
       </form>
       <div className="flex items-center justify-between mt-2 px-1">
-        <p className="text-gray-600 text-xs">
-          剩余 <span className="text-gray-400 font-mono">{remainingAttempts}</span> / {maxAttempts} 次
+        <p className="text-gray-400 text-xs">
+          剩余 <span className="text-gray-600 font-mono">{remainingAttempts}</span> / {maxAttempts} 次
         </p>
         {value.length > 0 && (
-          <p className={`text-xs ${isValidLength ? "text-emerald-500" : "text-amber-500"}`}>
+          <p className={`text-xs ${isValidLength ? "text-emerald-600" : "text-amber-600"}`}>
             已输入 {value.length} / {answerLength} 字
           </p>
         )}

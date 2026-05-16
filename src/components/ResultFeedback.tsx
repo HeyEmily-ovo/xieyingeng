@@ -26,14 +26,14 @@ export default function ResultFeedback({
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
           transition={{ duration: 0.3 }}
-          className="fixed inset-0 bg-black/80 backdrop-blur-sm flex items-center justify-center z-50 p-4"
+          className="fixed inset-0 bg-black/40 backdrop-blur-sm flex items-center justify-center z-50 p-4"
         >
           <motion.div
             initial={{ scale: 0.85, opacity: 0, y: 20 }}
             animate={{ scale: 1, opacity: 1, y: 0 }}
             exit={{ scale: 0.85, opacity: 0, y: 20 }}
             transition={{ delay: 0.1, duration: 0.35, ease: "easeOut" }}
-            className="bg-gray-900 border border-gray-700/50 rounded-2xl p-8 max-w-sm w-full text-center shadow-2xl"
+            className="bg-white border border-gray-200 rounded-2xl p-8 max-w-sm w-full text-center shadow-2xl"
           >
             {won ? (
               <>
@@ -45,16 +45,16 @@ export default function ResultFeedback({
                 >
                   🎉
                 </motion.div>
-                <h2 className="text-2xl font-black text-emerald-400 mb-2">恭喜通关！</h2>
+                <h2 className="text-2xl font-black text-emerald-600 mb-2">恭喜通关！</h2>
                 <div className="mb-6">
-                  <p className="text-gray-500 text-sm mb-1">正确答案</p>
-                  <p className="text-white font-bold text-2xl tracking-widest">{answer}</p>
+                  <p className="text-gray-400 text-sm mb-1">正确答案</p>
+                  <p className="text-gray-900 font-bold text-2xl tracking-widest">{answer}</p>
                 </div>
                 <div className="flex gap-3 justify-center">
                   <button
                     onClick={() => navigate("/levels")}
-                    className="flex-1 bg-gray-800 hover:bg-gray-700 text-gray-300
-                      font-medium py-3 rounded-xl transition-colors border border-gray-700/50"
+                    className="flex-1 bg-gray-100 hover:bg-gray-200 text-gray-700
+                      font-medium py-3 rounded-xl transition-colors border border-gray-200"
                   >
                     关卡选择
                   </button>
@@ -62,7 +62,7 @@ export default function ResultFeedback({
                     <button
                       onClick={() => navigate(`/game/${levelId + 1}`)}
                       className="flex-1 bg-emerald-600 hover:bg-emerald-500 text-white
-                        font-bold py-3 rounded-xl transition-all shadow-lg shadow-emerald-900/30"
+                        font-bold py-3 rounded-xl transition-all shadow-lg shadow-emerald-200"
                     >
                       下一关 →
                     </button>
@@ -72,23 +72,23 @@ export default function ResultFeedback({
             ) : (
               <>
                 <div className="text-5xl mb-4">😢</div>
-                <h2 className="text-2xl font-bold text-amber-400 mb-2">次数用完了</h2>
+                <h2 className="text-2xl font-bold text-amber-500 mb-2">次数用完了</h2>
                 <div className="mb-6">
-                  <p className="text-gray-500 text-sm mb-1">正确答案</p>
-                  <p className="text-white font-bold text-2xl tracking-widest">{answer}</p>
+                  <p className="text-gray-400 text-sm mb-1">正确答案</p>
+                  <p className="text-gray-900 font-bold text-2xl tracking-widest">{answer}</p>
                 </div>
-                <p className="text-gray-500 text-sm mb-6">别灰心，再来一次吧！</p>
+                <p className="text-gray-400 text-sm mb-6">别灰心，再来一次吧！</p>
                 <div className="flex gap-3 justify-center">
                   <button
                     onClick={() => navigate("/levels")}
-                    className="flex-1 bg-gray-800 hover:bg-gray-700 text-gray-300
-                      font-medium py-3 rounded-xl transition-colors border border-gray-700/50"
+                    className="flex-1 bg-gray-100 hover:bg-gray-200 text-gray-700
+                      font-medium py-3 rounded-xl transition-colors border border-gray-200"
                   >
                     关卡选择
                   </button>
                   <button
                     onClick={() => window.location.reload()}
-                    className="flex-1 bg-amber-600 hover:bg-amber-500 text-white
+                    className="flex-1 bg-amber-500 hover:bg-amber-400 text-white
                       font-bold py-3 rounded-xl transition-all"
                   >
                     重试本关

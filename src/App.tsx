@@ -14,7 +14,7 @@ export default function App() {
   const location = useLocation();
 
   return (
-    <div className="min-h-screen bg-gray-950 text-white">
+    <div className="min-h-screen bg-gray-50 text-gray-900">
       <AnimatePresence mode="wait">
         <motion.div
           key={location.pathname}

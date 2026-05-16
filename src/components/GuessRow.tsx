@@ -7,9 +7,9 @@ interface GuessRowProps {
 }
 
 const statusStyle: Record<string, string> = {
-  correct: "bg-emerald-600 border-emerald-400 text-white shadow-lg shadow-emerald-900/40",
-  present: "bg-amber-500 border-amber-400 text-white shadow-lg shadow-amber-900/30",
-  absent: "bg-gray-700 border-gray-600 text-gray-300",
+  correct: "bg-emerald-500 border-emerald-400 text-white shadow-md",
+  present: "bg-amber-500 border-amber-400 text-white shadow-md",
+  absent: "bg-gray-200 border-gray-300 text-gray-700",
 };
 
 export default function GuessRow({ results, index }: GuessRowProps) {

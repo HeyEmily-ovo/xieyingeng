@@ -30,22 +30,22 @@ export default function HomePage() {
       >
         {/* 标题 */}
         <motion.div variants={item} className="text-center mb-10">
-          <h1 className="text-5xl sm:text-7xl font-black tracking-widest mb-3">
-            这是<span className="text-emerald-400">谐音梗</span>
+          <h1 className="text-5xl sm:text-7xl font-black tracking-widest mb-3 text-gray-900">
+            这是<span className="text-emerald-500">谐音梗</span>
           </h1>
-          <p className="text-gray-500 text-base sm:text-lg">看图猜词 · 谐音联想 · 挑战脑洞</p>
+          <p className="text-gray-400 text-base sm:text-lg">看图猜词 · 谐音联想 · 挑战脑洞</p>
         </motion.div>
 
         {/* 进度条 */}
         {hasProgress && (
           <motion.div variants={item} className="w-full max-w-xs mb-8">
-            <div className="flex justify-between text-xs text-gray-500 mb-1.5">
+            <div className="flex justify-between text-xs text-gray-400 mb-1.5">
               <span>游戏进度</span>
               <span>
                 {progress.maxClearedId} / {totalLevels} 关
               </span>
             </div>
-            <div className="h-1.5 bg-gray-800 rounded-full overflow-hidden">
+            <div className="h-1.5 bg-gray-200 rounded-full overflow-hidden">
               <motion.div
                 initial={{ width: 0 }}
                 animate={{ width: `${(progress.maxClearedId / totalLevels) * 100}%` }}
@@ -60,10 +60,10 @@ export default function HomePage() {
         <motion.div variants={item} className="w-full max-w-xs mb-3">
           <button
             onClick={() => navigate(`/game/${nextLevel}`)}
-            className="w-full bg-emerald-600 hover:bg-emerald-500 active:bg-emerald-700
+            className="w-full bg-emerald-500 hover:bg-emerald-600 active:bg-emerald-700
               text-white font-bold text-lg py-4 px-8 rounded-xl
               transition-all hover:scale-[1.03] active:scale-[0.98]
-              shadow-lg shadow-emerald-900/30"
+              shadow-lg shadow-emerald-200"
           >
             {hasProgress ? `继续游戏（第 ${nextLevel} 关）` : "开始游戏"}
           </button>
@@ -73,9 +73,9 @@ export default function HomePage() {
         <motion.div variants={item} className="w-full max-w-xs flex gap-3">
           <button
             onClick={() => navigate("/levels")}
-            className="flex-1 bg-gray-800 hover:bg-gray-700 active:bg-gray-600
-              text-white font-medium py-3.5 rounded-xl transition-all
-              border border-gray-700/50 text-sm"
+            className="flex-1 bg-white hover:bg-gray-50 active:bg-gray-100
+              text-gray-700 font-medium py-3.5 rounded-xl transition-all
+              border border-gray-200 text-sm shadow-sm"
           >
             关卡选择
           </button>
@@ -93,9 +93,9 @@ export default function HomePage() {
                   "💡 每题有 8 次猜测机会！"
               )
             }
-            className="flex-1 bg-gray-800 hover:bg-gray-700 active:bg-gray-600
-              text-white font-medium py-3.5 rounded-xl transition-all
-              border border-gray-700/50 text-sm"
+            className="flex-1 bg-white hover:bg-gray-50 active:bg-gray-100
+              text-gray-700 font-medium py-3.5 rounded-xl transition-all
+              border border-gray-200 text-sm shadow-sm"
           >
             玩法说明
           </button>
@@ -111,7 +111,7 @@ export default function HomePage() {
                   window.location.reload();
                 }
               }}
-              className="text-gray-600 hover:text-red-400 text-xs underline transition-colors"
+              className="text-gray-300 hover:text-red-400 text-xs underline transition-colors"
             >
               重置进度
             </button>
@@ -119,8 +119,7 @@ export default function HomePage() {
         )}
       </motion.div>
 
-      {/* 底部署名 */}
-      <p className="fixed bottom-4 text-gray-700 text-xs">这是谐音梗 · Web 版</p>
+      <p className="fixed bottom-4 text-gray-200 text-xs">这是谐音梗 · Web 版</p>
     </div>
   );
 }

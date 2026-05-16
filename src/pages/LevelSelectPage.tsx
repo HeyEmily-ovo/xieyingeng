@@ -22,14 +22,14 @@ export default function LevelSelectPage() {
   const { progress, isLevelUnlocked } = useGameProgress();
 
   return (
-    <div className="min-h-screen">
+    <div className="min-h-screen bg-gray-50">
       <Header showBack />
 
       <div className="max-w-xl mx-auto px-4 py-8">
         <motion.h2
           initial={{ opacity: 0, y: -10 }}
           animate={{ opacity: 1, y: 0 }}
-          className="text-2xl font-bold text-center mb-2"
+          className="text-2xl font-bold text-center mb-2 text-gray-900"
         >
           关卡选择
         </motion.h2>
@@ -37,7 +37,7 @@ export default function LevelSelectPage() {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 0.15 }}
-          className="text-gray-500 text-sm text-center mb-8"
+          className="text-gray-400 text-sm text-center mb-8"
         >
           已通关 {progress.maxClearedId} / {levels.length} 关
         </motion.p>
@@ -64,38 +64,34 @@ export default function LevelSelectPage() {
                 className={`relative flex flex-col items-center justify-center p-5 rounded-2xl
                   border-2 transition-all aspect-[4/3] ${
                     cleared
-                      ? "bg-emerald-900/20 border-emerald-600/60 cursor-pointer hover:bg-emerald-900/40"
+                      ? "bg-emerald-50 border-emerald-300 cursor-pointer hover:bg-emerald-100"
                       : isNext
-                        ? "bg-gray-800 border-emerald-500/50 cursor-pointer hover:border-emerald-400 ring-1 ring-emerald-500/20"
+                        ? "bg-white border-emerald-400 cursor-pointer hover:border-emerald-500 ring-1 ring-emerald-200 shadow-sm"
                         : unlocked
-                          ? "bg-gray-800/50 border-gray-700 cursor-pointer hover:border-gray-500"
-                          : "bg-gray-900/50 border-gray-800 cursor-not-allowed"
+                          ? "bg-white border-gray-200 cursor-pointer hover:border-gray-400 shadow-sm"
+                          : "bg-gray-100 border-gray-200 cursor-not-allowed"
                   }`}
               >
-                {/* 关卡号 */}
                 <span
                   className={`text-3xl font-black mb-1.5 ${
                     cleared
-                      ? "text-emerald-400"
+                      ? "text-emerald-600"
                       : isNext
-                        ? "text-white"
+                        ? "text-gray-900"
                         : unlocked
-                          ? "text-gray-300"
-                          : "text-gray-600"
+                          ? "text-gray-700"
+                          : "text-gray-300"
                   }`}
                 >
                   {level.id}
                 </span>
 
-                {/* 分类标签 */}
-                <span className="text-xs px-2 py-0.5 rounded-full bg-gray-800 text-gray-400 mb-1">
+                <span className="text-xs px-2 py-0.5 rounded-full bg-gray-100 text-gray-500 mb-1">
                   {level.category}
                 </span>
 
-                {/* 字数 */}
-                <span className="text-xs text-gray-600">{[...level.answer].length} 字</span>
+                <span className="text-xs text-gray-400">{[...level.answer].length} 字</span>
 
-                {/* 状态角标 */}
                 {cleared && (
                   <span className="absolute top-2 right-2 w-5 h-5 bg-emerald-500 rounded-full
                     flex items-center justify-center text-white text-xs font-bold">
@@ -103,8 +99,8 @@ export default function LevelSelectPage() {
                   </span>
                 )}
                 {!unlocked && (
-                  <span className="absolute inset-0 flex items-center justify-center bg-gray-950/50 rounded-2xl">
-                    <span className="text-gray-600 text-xl">🔒</span>
+                  <span className="absolute inset-0 flex items-center justify-center bg-white/60 rounded-2xl">
+                    <span className="text-gray-300 text-xl">🔒</span>
                   </span>
                 )}
                 {isNext && (

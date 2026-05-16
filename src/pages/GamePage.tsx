@@ -32,21 +32,21 @@ function ImageCard({
     <div className="text-center">
       <p className="text-gray-400 text-sm sm:text-base mb-2">
         {label}
-        <span className="text-white font-bold text-xl sm:text-2xl ml-1">{highlight}</span>
+        <span className="text-gray-900 font-bold text-xl sm:text-2xl ml-1">{highlight}</span>
       </p>
       <motion.div
         animate={shake ? { x: [0, -8, 8, -8, 8, 0] } : {}}
         transition={{ duration: 0.4 }}
-        className="relative w-44 h-32 sm:w-56 sm:h-40 mx-auto
-          bg-gray-800/50 border-2 border-dashed border-gray-700 rounded-2xl
+        className="relative w-full max-w-xs sm:max-w-sm mx-auto aspect-[4/3]
+          bg-white border-2 border-dashed border-gray-300 rounded-2xl
           flex items-center justify-center overflow-hidden
-          group hover:border-gray-500 transition-colors"
+          group hover:border-emerald-400 transition-colors"
       >
         {imageSrc ? (
           <img src={imageSrc} alt={alt} className="max-w-full max-h-full object-contain rounded-xl" />
         ) : (
           <div className="text-center">
-            <span className="text-4xl sm:text-5xl grayscale group-hover:grayscale-0 transition-all duration-300">
+            <span className="text-5xl sm:text-6xl grayscale group-hover:grayscale-0 transition-all duration-300">
               {placeholder}
             </span>
           </div>
@@ -68,7 +68,6 @@ export default function GamePage() {
   const [gameState, setGameState] = useState<GameState>("playing");
   const [shake, setShake] = useState(false);
 
-  // 自动聚焦输入框
   useEffect(() => {
     if (gameState === "playing") {
       const timer = setTimeout(() => inputRef.current?.focus(), 100);
@@ -98,11 +97,11 @@ export default function GamePage() {
 
   if (!level) {
     return (
-      <div className="min-h-screen flex flex-col items-center justify-center">
+      <div className="min-h-screen flex flex-col items-center justify-center bg-gray-50">
         <p className="text-gray-400 text-lg mb-4">关卡不存在</p>
         <button
           onClick={() => navigate("/levels")}
-          className="bg-gray-700 hover:bg-gray-600 text-white px-5 py-2 rounded-lg transition-colors"
+          className="bg-gray-200 hover:bg-gray-300 text-gray-700 px-5 py-2 rounded-lg transition-colors"
         >
           返回关卡选择
         </button>
@@ -117,10 +116,9 @@ export default function GamePage() {
   const hasNextLevel = level.id < levels.length;
 
   return (
-    <div className="min-h-screen flex flex-col">
+    <div className="min-h-screen flex flex-col bg-gray-50">
       <Header levelId={level.id} category={level.category} />
 
-      {/* 游戏主体 */}
       <div className="flex-1 flex flex-col items-center px-4 py-5 max-w-lg mx-auto w-full">
         {/* 双图区域 */}
         <div className="w-full mb-5 space-y-4">
@@ -145,7 +143,7 @@ export default function GamePage() {
         {/* 猜测历史 */}
         <div className="flex-1 w-full mb-4 overflow-y-auto">
           {history.length === 0 && (
-            <p className="text-center text-gray-600 text-sm py-4">
+            <p className="text-center text-gray-300 text-sm py-4">
               输入 {answerLength} 个字，开始猜测
             </p>
           )}
@@ -162,7 +160,7 @@ export default function GamePage() {
                 {answerChars.map((_, j) => (
                   <div
                     key={j}
-                    className="w-10 h-10 sm:w-12 sm:h-12 rounded-lg border-2 border-gray-800"
+                    className="w-10 h-10 sm:w-12 sm:h-12 rounded-lg border-2 border-gray-200"
                   />
                 ))}
               </div>
@@ -180,7 +178,6 @@ export default function GamePage() {
         />
       </div>
 
-      {/* 结果弹窗 */}
       <ResultFeedback
         show={isGameOver}
         won={gameState === "won"}
