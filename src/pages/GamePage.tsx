@@ -1,6 +1,6 @@
-import { useState, useCallback, useEffect, useRef } from "react";
+import { useState, useCallback } from "react";
 import { useParams, useNavigate } from "react-router-dom";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion } from "framer-motion";
 import Header from "../components/Header";
 import GuessRow from "../components/GuessRow";
 import AnswerInput from "../components/AnswerInput";
@@ -11,7 +11,6 @@ import type { CharResult, GameState, Level } from "../types";
 import levelsData from "../data/levels.json";
 
 const MAX_ATTEMPTS = 8;
-const MAX_EMPTY_ROWS = 3; // 最多展示 3 行空槽预览
 const levels: Level[] = levelsData.levels;
 
 function ImageCard({
@@ -61,20 +60,12 @@ export default function GamePage() {
   const { id } = useParams<{ id: string }>();
   const navigate = useNavigate();
   const { completeLevel } = useGameProgress();
-  const inputRef = useRef<HTMLInputElement>(null);
 
   const level = levels.find((l) => l.id === Number(id));
 
   const [history, setHistory] = useState<CharResult[][]>([]);
   const [gameState, setGameState] = useState<GameState>("playing");
   const [shake, setShake] = useState(false);
-
-  useEffect(() => {
-    if (gameState === "playing") {
-      const timer = setTimeout(() => inputRef.current?.focus(), 100);
-      return () => clearTimeout(timer);
-    }
-  }, [gameState, history.length]);
 
   const handleSubmit = useCallback(
     (guess: string) => {
@@ -115,7 +106,6 @@ export default function GamePage() {
   const remaining = MAX_ATTEMPTS - history.length;
   const isGameOver = gameState !== "playing";
   const hasNextLevel = level.id < levels.length;
-  const visibleEmpty = Math.min(remaining, MAX_EMPTY_ROWS);
 
   return (
     <div className="min-h-screen flex flex-col bg-gray-50">
@@ -144,7 +134,6 @@ export default function GamePage() {
 
         {/* 输入区域 —— 紧贴图片下方，始终可见 */}
         <AnswerInput
-          ref={inputRef}
           answerLength={answerLength}
           onSubmit={handleSubmit}
           disabled={isGameOver}
@@ -152,38 +141,51 @@ export default function GamePage() {
           maxAttempts={MAX_ATTEMPTS}
         />
 
-        {/* 猜测历史 + 空槽预览 —— 下方可滚动区域 */}
+        {/* 尝试记录 —— 双排布局（左4右4），下方可滚动 */}
         <div className="flex-1 w-full mt-3 overflow-y-auto">
           {history.length === 0 && (
-            <p className="text-center text-gray-300 text-sm py-3">
+            <p className="text-center text-gray-300 text-sm py-2">
               输入 {answerLength} 个字，开始猜测
             </p>
           )}
-          <AnimatePresence>
-            {history.map((results, i) => (
-              <GuessRow key={i} results={results} index={i} />
-            ))}
-          </AnimatePresence>
-
-          {/* 空槽预览（最多 3 行） */}
-          {!isGameOver &&
-            Array.from({ length: visibleEmpty }).map((_, i) => (
-              <div key={`empty-${i}`} className="flex justify-center gap-1.5 mb-2">
-                {answerChars.map((_, j) => (
-                  <div
-                    key={j}
-                    className="w-9 h-9 sm:w-10 sm:h-10 rounded-lg border-2 border-gray-200"
-                  />
-                ))}
-              </div>
-            ))}
-
-          {/* 超出预览的剩余次数用文字提示 */}
-          {!isGameOver && remaining > MAX_EMPTY_ROWS && (
-            <p className="text-center text-gray-300 text-xs">
-              还有 {remaining - MAX_EMPTY_ROWS} 行空槽...
-            </p>
-          )}
+          <div className="flex gap-4 justify-center">
+            {/* 左列：第 1-4 次尝试 */}
+            <div className="flex flex-col items-center">
+              {Array.from({ length: 4 }).map((_, i) => {
+                const result = history[i];
+                return result ? (
+                  <GuessRow key={`L${i}`} results={result} index={i} />
+                ) : (
+                  <div key={`L-${i}`} className="flex justify-center gap-1.5 mb-2">
+                    {answerChars.map((_, j) => (
+                      <div
+                        key={j}
+                        className="w-9 h-9 sm:w-10 sm:h-10 rounded-lg border-2 border-gray-200"
+                      />
+                    ))}
+                  </div>
+                );
+              })}
+            </div>
+            {/* 右列：第 5-8 次尝试 */}
+            <div className="flex flex-col items-center">
+              {Array.from({ length: 4 }).map((_, i) => {
+                const result = history[i + 4];
+                return result ? (
+                  <GuessRow key={`R${i}`} results={result} index={i + 4} />
+                ) : (
+                  <div key={`R-${i}`} className="flex justify-center gap-1.5 mb-2">
+                    {answerChars.map((_, j) => (
+                      <div
+                        key={j}
+                        className="w-9 h-9 sm:w-10 sm:h-10 rounded-lg border-2 border-gray-200"
+                      />
+                    ))}
+                  </div>
+                );
+              })}
+            </div>
+          </div>
         </div>
       </div>
 

@@ -119,7 +119,7 @@ export default function HomePage() {
         )}
       </motion.div>
 
-      <p className="fixed bottom-4 text-gray-200 text-xs">这是谐音梗 · Web 版</p>
+      <p className="fixed bottom-4 text-gray-200 text-xs">Copyright © 2026 Wings</p>
     </div>
   );
 }
