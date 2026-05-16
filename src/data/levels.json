@@ -1,0 +1,26 @@
+{
+  "version": "1.0.0",
+  "levels": [
+    {
+      "id": 1,
+      "category": "动物",
+      "topText": "鲨",
+      "answer": "杀手",
+      "difficulty": 1
+    },
+    {
+      "id": 2,
+      "category": "成语",
+      "topText": "姜",
+      "answer": "将心比心",
+      "difficulty": 2
+    },
+    {
+      "id": 3,
+      "category": "网络热梗",
+      "topText": "二",
+      "answer": "二次元",
+      "difficulty": 2
+    }
+  ]
+}
