@@ -32,8 +32,8 @@
       "id": 4,
       "category": "食物",
       "topText": "麒麟",
-      "topImage": "images/question_4.svg",
-      "bottomImage": "images/question_4_hint.svg",
+      "topImage": "images/question_4.webp",
+      "bottomImage": "images/question_4_hint.webp",
       "answer": "冰淇淋",
       "difficulty": 2
     },
@@ -41,8 +41,8 @@
       "id": 5,
       "category": "网络热梗",
       "topText": "瓶",
-      "topImage": "images/question_5.svg",
-      "bottomImage": "images/question_5_hint.svg",
+      "topImage": "images/question_5.webp",
+      "bottomImage": "images/question_5_hint.webp",
       "answer": "躺平",
       "difficulty": 1
     },
@@ -50,8 +50,8 @@
       "id": 6,
       "category": "动物",
       "topText": "狼",
-      "topImage": "images/question_6.svg",
-      "bottomImage": "images/question_6_hint.svg",
+      "topImage": "images/question_6.webp",
+      "bottomImage": "images/question_6_hint.webp",
       "answer": "蟑螂",
       "difficulty": 2
     }

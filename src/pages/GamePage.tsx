@@ -11,6 +11,7 @@ import type { CharResult, GameState, Level } from "../types";
 import levelsData from "../data/levels.json";
 
 const MAX_ATTEMPTS = 8;
+const MAX_EMPTY_ROWS = 3; // 最多展示 3 行空槽预览
 const levels: Level[] = levelsData.levels;
 
 function ImageCard({
@@ -30,14 +31,14 @@ function ImageCard({
 }) {
   return (
     <div className="text-center">
-      <p className="text-gray-400 text-sm sm:text-base mb-2">
+      <p className="text-gray-400 text-xs sm:text-sm mb-1.5">
         {label}
-        <span className="text-gray-900 font-bold text-xl sm:text-2xl ml-1">{highlight}</span>
+        <span className="text-gray-900 font-bold text-lg sm:text-xl ml-1">{highlight}</span>
       </p>
       <motion.div
         animate={shake ? { x: [0, -8, 8, -8, 8, 0] } : {}}
         transition={{ duration: 0.4 }}
-        className="relative w-full max-w-xs sm:max-w-sm mx-auto aspect-[4/3]
+        className="relative w-full max-w-[260px] sm:max-w-[320px] mx-auto aspect-[4/3]
           bg-white border-2 border-dashed border-gray-300 rounded-2xl
           flex items-center justify-center overflow-hidden
           group hover:border-emerald-400 transition-colors"
@@ -46,7 +47,7 @@ function ImageCard({
           <img src={imageSrc} alt={alt} className="max-w-full max-h-full object-contain rounded-xl" />
         ) : (
           <div className="text-center">
-            <span className="text-5xl sm:text-6xl grayscale group-hover:grayscale-0 transition-all duration-300">
+            <span className="text-4xl sm:text-5xl grayscale group-hover:grayscale-0 transition-all duration-300">
               {placeholder}
             </span>
           </div>
@@ -114,14 +115,15 @@ export default function GamePage() {
   const remaining = MAX_ATTEMPTS - history.length;
   const isGameOver = gameState !== "playing";
   const hasNextLevel = level.id < levels.length;
+  const visibleEmpty = Math.min(remaining, MAX_EMPTY_ROWS);
 
   return (
     <div className="min-h-screen flex flex-col bg-gray-50">
       <Header levelId={level.id} category={level.category} backTo="/levels" />
 
-      <div className="flex-1 flex flex-col items-center px-4 py-5 max-w-lg mx-auto w-full">
+      <div className="flex-1 flex flex-col items-center px-4 py-3 max-w-lg mx-auto w-full">
         {/* 双图区域 */}
-        <div className="w-full mb-5 space-y-4">
+        <div className="w-full mb-3 space-y-3">
           <ImageCard
             label="这是"
             highlight={level.topText}
@@ -140,10 +142,10 @@ export default function GamePage() {
           />
         </div>
 
-        {/* 猜测历史 */}
-        <div className="flex-1 w-full mb-4 overflow-y-auto">
+        {/* 猜测历史 + 空槽预览 */}
+        <div className="w-full mb-3" style={{ minHeight: `${answerLength > 4 ? 280 : 220}px` }}>
           {history.length === 0 && (
-            <p className="text-center text-gray-300 text-sm py-4">
+            <p className="text-center text-gray-300 text-sm py-3">
               输入 {answerLength} 个字，开始猜测
             </p>
           )}
@@ -153,18 +155,25 @@ export default function GamePage() {
             ))}
           </AnimatePresence>
 
-          {/* 剩余空行 */}
+          {/* 空槽预览（最多 3 行） */}
           {!isGameOver &&
-            Array.from({ length: remaining }).map((_, i) => (
+            Array.from({ length: visibleEmpty }).map((_, i) => (
               <div key={`empty-${i}`} className="flex justify-center gap-1.5 mb-2">
                 {answerChars.map((_, j) => (
                   <div
                     key={j}
-                    className="w-10 h-10 sm:w-12 sm:h-12 rounded-lg border-2 border-gray-200"
+                    className="w-9 h-9 sm:w-10 sm:h-10 rounded-lg border-2 border-gray-200"
                   />
                 ))}
               </div>
             ))}
+
+          {/* 超出预览的剩余次数用文字提示 */}
+          {!isGameOver && remaining > MAX_EMPTY_ROWS && (
+            <p className="text-center text-gray-300 text-xs">
+              还有 {remaining - MAX_EMPTY_ROWS} 行空槽...
+            </p>
+          )}
         </div>
 
         {/* 输入区域 */}

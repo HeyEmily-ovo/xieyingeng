@@ -30,8 +30,8 @@ export default function GuessRow({ results, index }: GuessRowProps) {
             duration: 0.45,
             ease: "easeInOut",
           }}
-          className={`w-10 h-10 sm:w-12 sm:h-12 flex items-center justify-center
-            text-xl sm:text-2xl font-bold rounded-xl border-2 ${statusStyle[r.status]}`}
+          className={`w-9 h-9 sm:w-10 sm:h-10 flex items-center justify-center
+            text-lg sm:text-xl font-bold rounded-xl border-2 ${statusStyle[r.status]}`}
         >
           {r.char}
         </motion.div>
