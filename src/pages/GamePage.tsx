@@ -1,4 +1,4 @@
-import { useState, useCallback } from "react";
+import { useState, useCallback, useEffect } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import { motion } from "framer-motion";
 import Header from "../components/Header";
@@ -66,6 +66,11 @@ export default function GamePage() {
   const [history, setHistory] = useState<CharResult[][]>([]);
   const [gameState, setGameState] = useState<GameState>("playing");
   const [shake, setShake] = useState(false);
+
+  // 进入新关卡时重置滚动位置
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [id]);
 
   const handleSubmit = useCallback(
     (guess: string) => {
@@ -167,6 +172,8 @@ export default function GamePage() {
                 );
               })}
             </div>
+            {/* 虚线分隔 */}
+            <div className="border-l-2 border-dashed border-gray-300" />
             {/* 右列：第 5-8 次尝试 */}
             <div className="flex flex-col items-center">
               {Array.from({ length: 4 }).map((_, i) => {
