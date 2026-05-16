@@ -117,7 +117,7 @@ export default function GamePage() {
 
   return (
     <div className="min-h-screen flex flex-col bg-gray-50">
-      <Header levelId={level.id} category={level.category} />
+      <Header levelId={level.id} category={level.category} backTo="/levels" />
 
       <div className="flex-1 flex flex-col items-center px-4 py-5 max-w-lg mx-auto w-full">
         {/* 双图区域 */}

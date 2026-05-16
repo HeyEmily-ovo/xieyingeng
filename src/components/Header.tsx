@@ -4,9 +4,10 @@ interface HeaderProps {
   levelId?: number;
   category?: string;
   showBack?: boolean;
+  backTo?: string;
 }
 
-export default function Header({ levelId, category, showBack = true }: HeaderProps) {
+export default function Header({ levelId, category, showBack = true, backTo }: HeaderProps) {
   const navigate = useNavigate();
 
   return (
@@ -14,7 +15,7 @@ export default function Header({ levelId, category, showBack = true }: HeaderPro
       <div className="w-20">
         {showBack && (
           <button
-            onClick={() => navigate(-1)}
+            onClick={() => backTo ? navigate(backTo) : navigate(-1)}
             className="text-gray-500 hover:text-gray-800 transition-colors text-sm flex items-center gap-1"
           >
             <span className="text-lg leading-none">←</span>

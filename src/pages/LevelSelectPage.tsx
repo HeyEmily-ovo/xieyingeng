@@ -23,7 +23,7 @@ export default function LevelSelectPage() {
 
   return (
     <div className="min-h-screen bg-gray-50">
-      <Header showBack />
+      <Header showBack backTo="/" />
 
       <div className="max-w-xl mx-auto px-4 py-8">
         <motion.h2
